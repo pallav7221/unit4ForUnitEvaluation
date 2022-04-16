@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+
+    </p>
+    <button onclick="discount()">masai30</button>
+    <a href="./checkoutpage.html"><button>checkout page</button></a>
+    <div id="checkout">
+
+    </div>
+</body>
+    <script>
+        var addedItemInCart = JSON.parse(localStorage.getItem("addedItemInCart"));
+
+        var totalBill = addedItemInCart.reduce(function(sum,ele,index,arr){
+            return sum + Number(ele.price);
+        },0); 
+        function discount(){
+            document.querySelector("p").innerText = "total bill " +(totalBill - (totalBill*30/100));
+        }
+        var totalItems = addedItemInCart.length;
+         document.querySelector("p").innerText = "total bill " + totalBill;
+        addedItemInCart.forEach((data,cartIndex) => {
+            var box = document.createElement("div");
+            box.setAttribute("class", "box");
+
+            var name = document.createElement('p');
+            name.textContent = data.name;
+
+            var rating = document.createElement('p');
+            rating.textContent = data.rating;
+
+            var img = document.createElement('img');
+            img.src = data.image_url;
+
+            var price = document.createElement('p');
+            price.textContent = data.price;
+
+
+            box.append(name, rating, img, price);
+            document.querySelector("#checkout").append(box);
+
+        });
+    </script>
+</html>

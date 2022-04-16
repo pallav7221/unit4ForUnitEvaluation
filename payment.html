@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Payment form</h3>
+    <form>
+        <input type="name"  id="name" placeholder="enter your name">
+        <br>
+        <input type="number"  placeholder="enter card number" id="cardno">
+        <br>
+        <input type="number"   placeholder="enter CVV" id="cvv">
+        <br>
+        <br>
+        <input onclick="funsuccess()" type="button" value="Place order">
+    </form>
+</body>
+<script>
+    function funsuccess(){
+        if(document.querySelector("#name").value == ''){
+            alert("enter name");
+        }
+        else if(document.querySelector("#cardno").value == ''){
+            alert("enter number");
+        }
+       else if(document.querySelector("#cvv").value == ''){
+            alert("enter cvv");
+        }
+        else{
+
+            alert("payment succrssful");
+        }
+    }
+
+</script>
+</html>
